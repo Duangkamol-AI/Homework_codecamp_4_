@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 3 / 06</title> 
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <style>
+        table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        }
+        th, td {
+        padding: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h2>
+        Insert 5 Instructor
+        <button type="button" onclick="addAllInstructor()" >
+            Add All
+        </button>
+    </h2>
+    <table style="width:500px">
+        <tr>
+            <th>
+                Name EN
+            </th>
+            <th>
+                Name TH
+            </th>
+            <th>
+                Academic Rank
+            </th>
+            <th>
+                Expertise 
+            </th>
+            <th>
+                Degree
+            </th>
+        </tr>
+        <tr>
+            <td>
+                A
+            </td>
+            <td>
+                A
+            </td>
+            <td>
+                A
+            </td>
+            <td>
+                A
+            </td>
+            <td>
+                A
+            </td>
+        </tr>
+        <tr>
+            <td>
+                B
+            </td>
+            <td>
+                B
+            </td>
+            <td>
+                B
+            </td>
+            <td>
+                B
+            </td>
+            <td>
+                B
+            </td>
+        </tr>
+        <tr>
+            <td>
+                C
+            </td>
+            <td>
+                C
+            </td>
+            <td>
+                C
+            </td>
+            <td>
+                C
+            </td>
+            <td>
+                C
+            </td>
+        </tr>
+        <tr>
+            <td>
+                D
+            </td>
+            <td>
+                D
+            </td>
+            <td>
+                D
+            </td>
+            <td>
+                D
+            </td>
+            <td>
+                D
+            </td>
+        </tr>
+        <tr>
+            <td>
+                E
+            </td>
+            <td>
+                E
+            </td>
+            <td>
+                E
+            </td>
+            <td>
+                E
+            </td>
+            <td>
+                E
+            </td>
+        </tr>
+    </table>
+    <p>Get All Instructor <button type="button" onclick="getAllInstructor()">Get...</button></p>
+    <P>Remove Instructor id : 1 , name : A <button type="button" onclick="removeInstructor(1)">Remove</button> </P>
+    <P>Change Instructor id : 2 , name : B to Bb <button type="button" onclick="changeInstructor(2)">Change</button> </P>
+   
+    <script>
+        const API = 'http://localhost:8080'
+
+        const addAllInstructor = async () => {
+            const instructor = [
+                {name_en: 'A', name_th: 'A', academic_rank: 'A', expertise: 'A', degree: 'A'},
+                {name_en: 'B', name_th: 'B', academic_rank: 'B', expertise: 'B', degree: 'B'},
+                {name_en: 'C', name_th: 'C', academic_rank: 'C', expertise: 'C', degree: 'C'},
+                {name_en: 'D', name_th: 'D', academic_rank: 'D', expertise: 'D', degree: 'D'},
+                {name_en: 'E', name_th: 'E', academic_rank: 'E', expertise: 'E', degree: 'E'}
+            ] 
+            for(index in instructor){ 
+                const data = instructor[index]
+                console.log(data) 
+                const response = await axios.post(API + '/instructor', data)  
+                console.log(response)
+            }
+        }
+
+        const getAllInstructor = async () => { 
+            const response = await axios.get(API + '/instructor')  
+            console.log(response.data)
+        }
+
+        const removeInstructor = async (id) => { 
+            const response = await axios.delete(API + '/instructor/'+ id )  
+            console.log(response.status + ' | ' + response.statusText)
+        }
+
+        const changeInstructor = async (id) => {
+            const data =  {name_en: 'Bb', name_th: 'Bb', academic_rank: 'Bb', expertise: 'Bb', degree: 'Bb'}
+            const response = await axios.put(API + '/instructor/'+ id ,  data)  
+            console.log(response.status + ' | ' + response.statusText) 
+        }
+    </script>
+</body>
+</html>

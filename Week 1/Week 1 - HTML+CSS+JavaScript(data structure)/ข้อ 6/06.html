@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6</title>
+    <style>
+        .main {
+            display: flex;
+            justify-content: center; 
+            margin: 100px;
+            background-color: black;
+        }
+        .block {
+            width: 700px; 
+            height: 300px;
+        }
+        .header {
+            background-color: white;
+            display: flex;  
+            justify-content:  space-evenly;  
+        }  
+        .header .btn-close { 
+            display: flex;   
+            width: 200px;
+            justify-content:  flex-end;  
+
+        }
+
+        .content {
+            background-color: lightskyblue;
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+            padding: 10px;
+        }
+        .comment {
+            display: flex; 
+            align-items: center;  
+        }
+        .comment-option { 
+            width: 80px; 
+            height: 80px;
+            display: flex; 
+            flex-direction: column; 
+            justify-content: space-around;
+        }
+        .footer { 
+            display: flex; 
+            justify-content: space-between;
+        }
+        .group-option {
+            display: flex;  
+        }
+
+    </style>
+</head>
+<body class="main">
+    <div class="block"> 
+        <div class="header" > 
+            <h3 class="title" style="width: 300px; text-align: end;">Compose new Tweet</h3>    
+            <div class="btn-close">
+                <button type="button" style=" border: none; background-color: white; " >X</button>
+            </div>
+        </div>
+        <div class="content" > 
+            <div class="comment"> 
+                <img  alt="icon" src="https://image.flaticon.com/icons/svg/2862/2862494.svg" width="25px"/>
+                <textarea rows="5" style="width: 400px;" ></textarea>
+                
+            </div>
+            <div class="footer" style="width: 400px;">
+                <div style="width: 300px; " class="group-option" > 
+                    <div style="width: 50px;">
+                        <img alt="icon" width="25px" height="25px" src="https://image.flaticon.com/icons/svg/833/833281.svg" width="25px"/> 
+                    </div>
+                    <div style="width: 50px;">
+                        <img alt="icon" width="25px" height="25px" src="https://image.flaticon.com/icons/svg/1946/1946449.svg" width="25px"/>
+                    </div>
+                    <div style="width: 50px;">
+                        <img alt="icon" width="25px" height="25px" src="https://image.flaticon.com/icons/svg/478/478544.svg" width="25 px"/>
+                    </div>
+                    <div style="width: 50px;">
+                        <img alt="icon" width="25px" height="25px" src="https://image.flaticon.com/icons/svg/1216/1216844.svg" width="25 px"/>
+                    </div>
+                </div>
+                <div> 
+                    <button type="button" >+</button>
+                    <button type="button" >tweet</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
